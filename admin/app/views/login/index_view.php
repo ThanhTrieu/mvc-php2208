@@ -22,7 +22,7 @@
                     </p>
                 <?php endif; ?>
 
-                <form class="mt-3 p-3 border" method="POST" action="<?= route('login','handleLogin',['age'=>20,'name'=>'Teo']); ?>">
+                <form class="mt-3 p-3 border" method="POST" action="<?= route('login','handleLogin'); ?>">
                     <div class="mb-3">
                         <label class="form-label">Email address</label>
                         <input type="text" class="form-control" name="username">
