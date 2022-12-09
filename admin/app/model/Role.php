@@ -37,4 +37,29 @@ class Role extends Model
         }
         return $flagCheck;
     }
+
+    public function insertRole($name, $des)
+    {
+        $flagCheck = false;
+        $status = 1;
+        $createdAt = date('Y-m-d H:i:s');
+        $updatedAt = null;
+        $deletedAt = null;
+        $sql = "INSERT INTO `roles`(`name`,`description`,`status`,`created_at`,`updated_at`,`deleted_at`) VALUES(:nameRole, :descriptions, :statusRole, :created_at, :updated_at, :deleted_at)";
+
+        $stmt = $this->db->prepare($sql);
+        if($stmt){
+            $stmt->bindParam(':nameRole', $name, PDO::PARAM_STR);
+            $stmt->bindParam(':descriptions', $des, PDO::PARAM_STR);
+            $stmt->bindParam(':statusRole', $status, PDO::PARAM_INT);
+            $stmt->bindParam(':created_at', $createdAt, PDO::PARAM_STR);
+            $stmt->bindParam(':updated_at', $updatedAt, PDO::PARAM_STR);
+            $stmt->bindParam(':deleted_at', $deletedAt, PDO::PARAM_STR);
+            if($stmt->execute()){
+                $flagCheck = true;
+                $stmt->closeCursor();
+            }
+        }
+        return $flagCheck;
+    }
 }
