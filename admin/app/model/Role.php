@@ -62,4 +62,20 @@ class Role extends Model
         }
         return $flagCheck;
     }
+
+    public function getDataRoleByPaging()
+    {
+        $data = [];
+        $sql  = "SELECT * FROM `roles`";
+        $stmt = $this->db->prepare($sql);
+        if($stmt){
+            if($stmt->execute()){
+                if($stmt->rowCount() > 0){
+                    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $stmt->closeCursor();
+                }
+            }
+        }
+        return $data;
+    }
 }

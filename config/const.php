@@ -8,3 +8,8 @@ const APP_PATH = 'index.php';
 const NAMESPACE_CONTROLLER = 'app\\controller\\';
 const PATH_APP_VIEW = 'app/view/';
 const PATH_PUBLIC = './public/';
+
+const ACTIVE_STATUS = 1;
+const LABEL_ACTIVE_STATUS = 'Hoat dong';
+const INACTIVE_STATUS = 0;
+const LABEL_INACTIVE_STATUS = 'Ngung hoat dong';
